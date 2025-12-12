@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %} {% load static %} {% block title %}Love & Joy
+Kiddie’s Day Care Admin{% endblock %} {% block branding %}
+<div id="site-name">
+  <img
+    src="{% static 'images/logo.png' %}"
+    alt="Love & Joy Logo"
+    style="
+      height: 45px;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 50%;
+    "
+  />
+  <span style="font-size: 1.3rem; font-weight: 700; color: #ff7f50">
+    Love & Joy Kiddie’s Day Care Admin
+  </span>
+</div>
+{% endblock %} {% block nav-global %}
+<div style="padding: 8px; font-size: 0.9rem">
+  Managed with ❤️ by Love & Joy Kiddie’s Team
+</div>
+{% endblock %}

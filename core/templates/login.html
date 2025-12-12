@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<section class="main-content">
+  <h2 style="text-align: center">Parent Login</h2>
+  <p style="text-align: center">
+    Access your child's dashboard and stay updated.
+  </p>
+
+  <form method="post" style="max-width: 480px; margin: 1rem auto">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="button" style="width: 100%">Login</button>
+  </form>
+
+  <p style="text-align: center; margin-top: 10px">
+    New parent? <a href="{% url 'signup' %}">Create an account</a>
+  </p>
+</section>
+{% endblock %}

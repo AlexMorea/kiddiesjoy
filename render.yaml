@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: kiddiesjoy
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn kiddiesjoy.wsgi"
+    envVars:
+      DEBUG: false

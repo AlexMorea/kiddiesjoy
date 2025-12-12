@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+<section class="main-content">
+  <h2>{{ enrollment.child_name }}</h2>
+  <p><strong>Class:</strong> {{ enrollment.class_group }}</p>
+  <p><strong>Age:</strong> {{ enrollment.child_age }}</p>
+  <p><strong>Medical info:</strong> {{ enrollment.medical_info }}</p>
+  <p>
+    <strong>Status:</strong> {% if enrollment.approved %}<span class="approved"
+      >Approved</span
+    >{% else %}<span class="pending">Pending</span>{% endif %}
+  </p>
+
+  <div style="margin-top: 12px">
+    <a href="{% url 'edit_enrollment' enrollment.pk %}" class="button">Edit</a>
+    <a
+      href="{% url 'dashboard' %}"
+      class="button"
+      style="background: #fff; color: #0b2545; border: 1px solid #0b2545"
+      >Back</a
+    >
+  </div>
+</section>
+{% endblock %}

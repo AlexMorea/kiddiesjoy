@@ -1,0 +1,83 @@
+{% extends "admin/login.html" %} {% load static %} {% block extrastyle %}
+<style>
+  body.login {
+    background: linear-gradient(135deg, #ff7f50, #fbbf24, #5eead4);
+    background-size: 400% 400%;
+    animation: bgMove 15s ease infinite;
+    font-family: "Poppins", sans-serif;
+  }
+
+  @keyframes bgMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .login #container {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    max-width: 420px;
+  }
+
+  .login #header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .login #header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .login #header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .login #content form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login #content input {
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+  }
+
+  .login #content input[type="submit"] {
+    background: #ff7f50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .login #content input[type="submit"]:hover {
+    background: #fbbf24;
+    color: #333;
+  }
+</style>
+{% endblock %} {% block branding %}
+<div id="header">
+  <img src="{% static 'images/logo.png' %}" alt="Love & Joy Logo" />
+  <h1>Love & Joy Kiddie’s Day Care</h1>
+  <p style="font-size: 0.95rem; color: #555; margin-top: 0.3rem">
+    Welcome back — please log in to your admin portal
+  </p>
+</div>
+{% endblock %}

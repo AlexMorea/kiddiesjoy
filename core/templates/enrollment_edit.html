@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<section class="main-content">
+  <h2>Edit enrollment</h2>
+  <form method="post" action="{% url 'edit_enrollment' enrollment.pk %}">
+    {% csrf_token %} {{ form.as_p }}
+    <div style="text-align: center; margin-top: 12px">
+      <button class="button" type="submit">Save changes</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<section class="main-content">
+  <h2>Create a parent account</h2>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <h4>Profile details</h4>
+    {{ profile_form.as_p }}
+    <div style="text-align: center">
+      <button class="button" type="submit">Create account</button>
+    </div>
+  </form>
+  <p style="text-align: center; margin-top: 12px">
+    Already have an account? <a href="{% url 'login' %}">Login</a>
+  </p>
+</section>
+{% endblock %}

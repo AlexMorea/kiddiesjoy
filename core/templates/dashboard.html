@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %}
+<section class="main-content">
+  <h2 style="text-align: left">Dashboard</h2>
+
+  <!-- Animated cards -->
+  <div class="card-grid">
+    <div class="dash-card floating">
+      <h3>Children</h3>
+      <p class="count" data-target="{{ children|length }}">0</p>
+    </div>
+    <div class="dash-card floating">
+      <h3>Announcements</h3>
+      <p class="count" data-target="{{ announcements|length }}">0</p>
+    </div>
+    <div class="dash-card floating">
+      <h3>Payments</h3>
+      <p class="count" data-target="{{ payments|length }}">0</p>
+    </div>
+    <div class="dash-card floating">
+      <h3>Attendance</h3>
+      <p class="count" data-target="{{ attendance|length }}">0</p>
+    </div>
+  </div>
+
+  <!-- Children list -->
+  <div style="margin-top: 18px">
+    <h3>Your children</h3>
+    <ul>
+      {% for child in children %}
+      <li style="padding: 12px; border-bottom: 1px solid #eee">
+        <strong>{{ child.child_name }}</strong> — {{ child.class_group }}
+        <span
+          style="float:right; font-weight:700; color: {{ child.approved|yesno:'#2ecc71,#e67e22' }}"
+        >
+          {{ child.approved|yesno:"Approved,Pending" }}
+        </span>
+        <div style="margin-top: 6px">
+          <a href="{% url 'enrollment_detail' child.id %}">View</a> |
+          <a href="{% url 'edit_enrollment' child.id %}">Edit</a>
+        </div>
+      </li>
+      {% empty %}
+      <li>No children yet. <a href="{% url 'add_child' %}">Add a child</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Announcements preview -->
+  <div style="margin-top: 20px">
+    <h3>Latest Announcements</h3>
+    {% if announcements %}
+    <ul>
+      {% for a in announcements %}
+      <li style="padding: 10px; border-bottom: 1px solid #f0f0f0">
+        <strong>{{ a.title }}</strong><br />{{ a.message|truncatechars:120 }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No announcements yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Count-up + float animation -->
+<script>
+  // count-up simple
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".count").forEach((el) => {
+      const target = parseInt(el.dataset.target || "0", 10);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 60));
+      const t = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(t);
+        } else {
+          el.textContent = current;
+        }
+      }, 12);
+    });
+  });
+</script>
+{% endblock %}
