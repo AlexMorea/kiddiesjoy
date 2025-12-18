@@ -18,7 +18,7 @@
           <span class="logo-text">Love & Joy Kiddie’s Day Care</span>
         </div>
 
-        <ul id="nav-links">
+        <ul id="nav-links" class="nav-links">
           <li><a href="{% url 'home' %}">Home</a></li>
 
           {% if user.is_authenticated %}
@@ -30,29 +30,26 @@
           {% endif %}
         </ul>
 
-        <!-- BURGER MENU -->
-        <div class="burger" id="burger">
-          <div></div>
-          <div></div>
-          <div></div>
+        <!-- BURGER -->
+        <div class="burger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </nav>
 
-    <main class="page-wrapper">{% block content %}{% endblock %}</main>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".burger").classList.toggle("active");
+        document.querySelector("#nav-links").classList.toggle("active");
+      }
+    </script>
+
+    <main>{% block content %}{% endblock %}</main>
 
     <footer class="footer">
       © Love & Joy Kiddie’s Day Care – All rights reserved
     </footer>
-
-    <script>
-      const burger = document.getElementById("burger");
-      const navLinks = document.getElementById("nav-links");
-
-      burger.addEventListener("click", () => {
-        burger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-      });
-    </script>
   </body>
 </html>

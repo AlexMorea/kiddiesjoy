@@ -2,17 +2,20 @@
 <div class="container">
   <section class="main-content">
     <h1>Welcome to Love & Joy Kiddie’s Day Care</h1>
-    <p>Where learning meets laughter!</p>
+
+    <p style="text-align: center; font-size: 1.1rem">
+      Where learning meets laughter!
+    </p>
 
     <img
       src="{% static 'images/daycare_bg.jpg' %}"
       alt="Daycare"
-      class="home-hero"
+      class="hero-img"
     />
 
     <div class="center-btn">
-      <a href="{% url 'signup' %}" class="button">Get Started</a>
-      <a href="{% url 'login' %}" class="button">Parent Login</a>
+      <a class="button" href="{% url 'signup' %}">Get Started</a>
+      <a class="button secondary" href="{% url 'login' %}">Parent Login</a>
     </div>
   </section>
 </div>
