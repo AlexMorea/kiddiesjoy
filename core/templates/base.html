@@ -12,13 +12,13 @@
   <body>
     <!-- NAVBAR -->
     <nav class="navbar">
-      <div class="container nav-flex">
+      <div class="nav-container">
         <div class="logo-box">
-          <img src="{% static 'images/logo.png' %}" class="logo-img" />
-          <span class="logo-text">Love & Joy Kiddie’s Day Care</span>
+          <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          <span>Love & Joy Kiddie’s Day Care</span>
         </div>
 
-        <ul id="nav-links" class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="{% url 'home' %}">Home</a></li>
 
           {% if user.is_authenticated %}
@@ -30,7 +30,7 @@
           {% endif %}
         </ul>
 
-        <!-- BURGER -->
+        <!-- Burger -->
         <div class="burger" onclick="toggleMenu()">
           <span></span>
           <span></span>
@@ -41,15 +41,20 @@
 
     <script>
       function toggleMenu() {
-        document.querySelector(".burger").classList.toggle("active");
-        document.querySelector("#nav-links").classList.toggle("active");
+        document.getElementById("navLinks").classList.toggle("show");
       }
     </script>
 
-    <main>{% block content %}{% endblock %}</main>
+    <main class="page-content">{% block content %}{% endblock %}</main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-      © Love & Joy Kiddie’s Day Care – All rights reserved
+      <div class="footer-container">
+        <p><strong>Love & Joy Kiddie’s Day Care</strong></p>
+        <p>Providing a safe, loving & fun learning environment</p>
+        <p>📍 South Africa | 📞 Contact Admin</p>
+        <p class="copyright">© {{ year|default:2025 }} All Rights Reserved</p>
+      </div>
     </footer>
   </body>
 </html>

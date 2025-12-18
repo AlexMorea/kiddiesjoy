@@ -1,22 +1,17 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<div class="container">
-  <section class="main-content">
-    <h1>Welcome to Love & Joy Kiddie’s Day Care</h1>
+<div class="card">
+  <h1>Welcome to Love & Joy Kiddie’s Day Care</h1>
+  <p>Where learning meets laughter!</p>
 
-    <p style="text-align: center; font-size: 1.1rem">
-      Where learning meets laughter!
-    </p>
+  <img
+    src="{% static 'images/daycare_bg.jpg' %}"
+    class="hero-img"
+    alt="Daycare"
+  />
 
-    <img
-      src="{% static 'images/daycare_bg.jpg' %}"
-      alt="Daycare"
-      class="hero-img"
-    />
-
-    <div class="center-btn">
-      <a class="button" href="{% url 'signup' %}">Get Started</a>
-      <a class="button secondary" href="{% url 'login' %}">Parent Login</a>
-    </div>
-  </section>
+  <div>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Get Started</a>
+    <a href="{% url 'login' %}" class="btn btn-secondary">Parent Login</a>
+  </div>
 </div>
 {% endblock %}
