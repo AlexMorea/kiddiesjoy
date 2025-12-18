@@ -30,11 +30,11 @@
           {% endif %}
         </ul>
 
-        <!-- BURGER -->
-        <div class="burger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+        <!-- BURGER MENU -->
+        <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </div>
     </nav>
@@ -46,10 +46,13 @@
     </footer>
 
     <script>
-      function toggleMenu() {
-        document.getElementById("nav-links").classList.toggle("active");
-        document.querySelector(".burger").classList.toggle("active");
-      }
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("nav-links");
+
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
     </script>
   </body>
 </html>
