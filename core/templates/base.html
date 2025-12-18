@@ -30,26 +30,26 @@
           {% endif %}
         </ul>
 
-        <!-- BURGER MENU -->
+        <!-- BURGER -->
         <div class="burger" onclick="toggleMenu()">
-          <div></div>
-          <div></div>
-          <div></div>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </nav>
 
-    <script>
-      function toggleMenu() {
-        document.querySelector(".burger").classList.toggle("active");
-        document.querySelector("#nav-links").classList.toggle("active");
-      }
-    </script>
-
-    <main>{% block content %}{% endblock %}</main>
+    <main class="page-wrapper">{% block content %}{% endblock %}</main>
 
     <footer class="footer">
       © Love & Joy Kiddie’s Day Care – All rights reserved
     </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav-links").classList.toggle("active");
+        document.querySelector(".burger").classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
